@@ -1,20 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BallDetector : MonoBehaviour
 {
-    private IEnumerator coroutine;
+   
+    float triggeredBallCount;
+    [SerializeField] private TMP_Text PercentText;
+    public float fillFraction;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "uncolor")
+        if (other.gameObject.tag == "uncolored")
         {
-           
-            coroutine = WaitAndGameOver(1f);
-            StartCoroutine(coroutine);
+                IEnumerator coroutine;
+                coroutine = WaitAndGameOver(2f);
+                StartCoroutine(coroutine);
+            
 
         }
+        if(other.gameObject.tag=="colored")
+        {
+            triggeredBallCount++;
+           
+            if(triggeredBallCount == SpawnBalls.instance.ballCount)
+            {
+                IEnumerator coroutine;
+                coroutine = WaitAndNextLevel(2f);
+                StartCoroutine(coroutine);
+            }
+        }
+
+
+    }
+
+    private void Update()
+    {
+        fillFraction = triggeredBallCount / SpawnBalls.instance.ballCount;
+        PercentText.text = "%" + (Mathf.Min(100, fillFraction * 100)).ToString();
     }
 
 
@@ -24,7 +48,18 @@ public class BallDetector : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            print("gameOver2");
+            GameManager.instance.isGameOver = true;
         }
     }
+
+    private IEnumerator WaitAndNextLevel(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            GameManager.instance.isNextLevel = true;
+        }
+    }
+
+   
 }

@@ -7,15 +7,10 @@ public class PencilRaycastController : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float movingSpeed;
-  //private bool isClicked ;
 
-
-   //public bool Clicked { get => isClicked; set => isClicked = value; }
-
-    private void Start()
+    private void Awake()
     {
-        cam = Camera.main;
-        
+        cam = Camera.main;   
     }
 
     private void Update()
@@ -30,8 +25,8 @@ public class PencilRaycastController : MonoBehaviour
             {
                 float moveDuration = 2;
                 obj.transform.DOMoveX(obj.transform.position.y+20, moveDuration);
-                // obj.transform.position =  Vector3.Lerp(obj.transform.position, obj.transform.position + new Vector3(25,0,0), movingSpeed * Time.time);
-                print("a");
+                
+              
                
                
             }

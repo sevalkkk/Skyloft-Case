@@ -4,40 +4,50 @@ using UnityEngine;
 
 public class SpawnBalls : MonoBehaviour
 {
-    
-    [SerializeField] private float ball_count;
-    [SerializeField] private Transform ball_place_for_colors;
-    [SerializeField] private Transform ball_place_for_uncolors;
+    public float ballCount;
+    [SerializeField] private float coloredBallCount;
+    [SerializeField] private float uncoloredBallCount;
    
-    [SerializeField] private GameObject ball_prefab;
+    [SerializeField] private Transform coloredBallPlace;
+    [SerializeField] private Transform uncoloredBallPlace;
+   
+    [SerializeField] private GameObject BallPrefab;
+    public static SpawnBalls instance;
 
-    public float BallCount { get => ball_count; set => ball_count = value; }
-  
-    
-    void Start()
+    //public float BallCount { get => ballCount; set => ballCount = value; }
+
+    private void Awake()
     {
-        //can be in awake??? learn that
+        if(instance == null)
+        {
+            instance = this;
+        }
         SpawnBall();
     }
-
-  
-
+   
     private void SpawnBall()
     {
-        for (int i = 0; i < ball_count; i++)
+        for (int i = 0; i < coloredBallCount; i++)
         {
-            GameObject obj_color = Instantiate(ball_prefab, ball_place_for_colors) as GameObject;
+            GameObject obj_color = Instantiate(BallPrefab, coloredBallPlace) as GameObject;
             obj_color.GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
-            obj_color.transform.position = ball_place_for_colors.position;
-            obj_color.tag = "color";
+            obj_color.transform.position = coloredBallPlace.position;
+            obj_color.tag = "colored";
 
-            GameObject obj_uncolor = Instantiate(ball_prefab, ball_place_for_uncolors) as GameObject;
-            obj_uncolor.transform.position = ball_place_for_uncolors.position;
-            obj_uncolor.tag = "uncolor";
         }
 
+        for (int i = 0; i < uncoloredBallCount; i++)
+        {
 
-      
-       
+            GameObject obj_uncolor = Instantiate(BallPrefab, uncoloredBallPlace) as GameObject;
+            obj_uncolor.transform.position = uncoloredBallPlace.position;
+            obj_uncolor.tag = "uncolored";
+        }
+
+        ballCount = coloredBallCount + uncoloredBallCount;
+
+
+
+
     }
 }
