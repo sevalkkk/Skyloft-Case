@@ -5,11 +5,11 @@ using UnityEngine;
 public class SpawnBalls : MonoBehaviour
 {
     public float ballCount;
-    [SerializeField] private float coloredBallCount;
-    [SerializeField] private float uncoloredBallCount;
+    public float coloredBallCount;
+    public float uncoloredBallCount;
    
-    [SerializeField] private Transform coloredBallPlace;
-    [SerializeField] private Transform uncoloredBallPlace;
+    public Transform coloredBallPlace;
+    public Transform uncoloredBallPlace;
    
     [SerializeField] private GameObject BallPrefab;
     public static SpawnBalls instance;
@@ -22,9 +22,14 @@ public class SpawnBalls : MonoBehaviour
         {
             instance = this;
         }
+       
+    }
+
+    private void Start()
+    {
         SpawnBall();
     }
-   
+
     private void SpawnBall()
     {
         for (int i = 0; i < coloredBallCount; i++)

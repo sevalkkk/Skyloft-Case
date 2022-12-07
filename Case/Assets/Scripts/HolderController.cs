@@ -6,26 +6,27 @@ using DG.Tweening;
 public class HolderController : MonoBehaviour
 {
     [SerializeField] private BallDetector ballDetector;
-  
-
-
-   
-
-    private void Update()
+    private void OnEnable()
     {
-        if(ballDetector.fillFraction > 0.1f )
-        {
-             BallHolderMoves();
-        }
-       
+        BallDetector.OnPercentAge += BallHolderMoves; 
     }
+
+    private void OnDisable()
+    {
+        BallDetector.OnPercentAge -= BallHolderMoves;
+    }
+
 
     private void BallHolderMoves()
     {
         float moveDuration = 0.15f;
-        if(ballDetector.fillFraction * 100 !=100)
+        
+        if (ballDetector.fillFraction <=1)
         {
-            transform.DOMoveY(transform.position.y - 0.01f, moveDuration * ballDetector.fillFraction);
+            
+            transform.DOMoveY(transform.position.y - 0.1f, moveDuration * ballDetector.fillFraction);
+           
+            
         }
       
     }

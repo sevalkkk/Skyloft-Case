@@ -7,28 +7,27 @@ public class PencilRaycastController : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float movingSpeed;
+    
 
     private void Awake()
     {
         cam = Camera.main;   
     }
 
-    private void Update()
+   
+
+    public void PencilClicked()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit,Mathf.Infinity, layer) )
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
         {
             GameObject obj = hit.collider.gameObject;
-            if(hit.collider!=null && Input.GetMouseButtonDown(0))
+            if (hit.collider != null )
             {
                 float moveDuration = 2;
-                obj.transform.DOMoveX(obj.transform.position.y+20, moveDuration);
-                
-              
-               
-               
+                obj.transform.DOMoveX(obj.transform.position.y + 20, moveDuration);
             }
         }
     }

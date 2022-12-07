@@ -20,7 +20,7 @@ public class BallController : MonoBehaviour
 
    
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (gameObject.tag == "uncolored" && collision.gameObject.tag == "colored")
         {
@@ -31,7 +31,7 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.tag == "uncolored" || collision.gameObject.tag == "colored")
         {
-            Vector3 m_NewForce = new Vector3(Random.Range(-0.1f, 0.1f), 0f, 0.0f);
+            Vector3 m_NewForce = new Vector3(Random.Range(-0.2f, 0.2f), 0f, 0.0f);
             rb.AddForce(m_NewForce, ForceMode.Impulse);
         }
     }
