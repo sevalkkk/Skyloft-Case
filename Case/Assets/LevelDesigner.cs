@@ -13,12 +13,24 @@ public class LevelDesigner : MonoBehaviour
 
   
 
-    private void Start()
+    private void Update()
     {
-        SpawnBalls.instance.coloredBallPlace.position= coloredBallTransform.position;
-        SpawnBalls.instance.uncoloredBallPlace.position = uncoloredBallTransform.position;
-        SpawnBalls.instance.coloredBallCount = coloredBallCount;
-        SpawnBalls.instance.uncoloredBallCount = uncoloredBallCount;
-        SpawnBalls.instance.ballCount = coloredBallCount + uncoloredBallCount;
+        SetNewLevelAssets();
     }
+
+
+    private void SetNewLevelAssets()
+    {
+        //if(GameManager.instance.isNewLevel || GameManager.instance.isGameStart)
+      
+            SpawnBalls.instance.coloredBallPlace.position = coloredBallTransform.position;
+            SpawnBalls.instance.uncoloredBallPlace.position = uncoloredBallTransform.position;
+            SpawnBalls.instance.coloredBallCount = coloredBallCount;
+            SpawnBalls.instance.uncoloredBallCount = uncoloredBallCount;
+            SpawnBalls.instance.ballCount = coloredBallCount + uncoloredBallCount;
+      
+     
+    }
+
+  // ADD INVOKE 
 }

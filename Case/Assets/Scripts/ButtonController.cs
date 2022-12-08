@@ -21,6 +21,19 @@ public class ButtonController : MonoBehaviour
 
     public void TapToNextLevel()
     {
-        print("tap to next level");
+        print("next level");
+        LevelManager.instance.LoadNextLevel();
+        SpawnBalls.instance.RunSpawningOnce();
+
+
+    }
+    
+    public void TapToStartGame()
+    {
+        print("start game");
+        SpawnBalls.instance.RunSpawningOnce();
+        GameManager.instance.isGameStart = true;
+       
+       
     }
 }

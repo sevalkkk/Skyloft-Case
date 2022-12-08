@@ -13,7 +13,7 @@ public class SpawnBalls : MonoBehaviour
    
     [SerializeField] private GameObject BallPrefab;
     public static SpawnBalls instance;
-
+  
     //public float BallCount { get => ballCount; set => ballCount = value; }
 
     private void Awake()
@@ -25,34 +25,38 @@ public class SpawnBalls : MonoBehaviour
         
     }
 
-    private void Start()
+    public void RunSpawningOnce()
     {
-        SpawnBall();
+        Invoke(nameof(SpawnBall), 0.1f);
     }
 
-    private void SpawnBall()
+    public void SpawnBall()
     {
-        for (int i = 0; i < coloredBallCount; i++)
-        {
-            GameObject obj_color = Instantiate(BallPrefab, coloredBallPlace) as GameObject;
-            obj_color.GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
-            obj_color.transform.position = coloredBallPlace.position;
-            obj_color.tag = "colored";
+        
+       
+           
+            for (int i = 0; i < coloredBallCount; i++)
+            {
+                GameObject obj_color = Instantiate(BallPrefab, coloredBallPlace) as GameObject;
+                obj_color.GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
+                obj_color.transform.position = coloredBallPlace.position;
+                obj_color.tag = "colored";
+               
 
-        }
+            }
 
-        for (int i = 0; i < uncoloredBallCount; i++)
-        {
+            for (int i = 0; i < uncoloredBallCount; i++)
+            {
 
-            GameObject obj_uncolor = Instantiate(BallPrefab, uncoloredBallPlace) as GameObject;
-            obj_uncolor.transform.position = uncoloredBallPlace.position;
-            obj_uncolor.tag = "uncolored";
-        }
+                GameObject obj_uncolor = Instantiate(BallPrefab, uncoloredBallPlace) as GameObject;
+                obj_uncolor.transform.position = uncoloredBallPlace.position;
+                obj_uncolor.tag = "uncolored";
+            }
 
-        ballCount = coloredBallCount + uncoloredBallCount;
-
-
+            ballCount = coloredBallCount + uncoloredBallCount;
 
 
     }
+
+   
 }

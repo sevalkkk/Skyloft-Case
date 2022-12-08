@@ -58,7 +58,8 @@ public class BallDetector : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            GameManager.instance.isNextLevel = true;
+            GameManager.instance.EndGame(true);
+          //  GameManager.instance.isNextLevel = true;
         }
     }
 

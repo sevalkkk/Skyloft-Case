@@ -1,23 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool isGameOver;
-    public bool isNextLevel;
+    
     public bool isGameStart;
+    public bool isNewLevel;
+  
     [SerializeField] private GameObject GameStartPanel;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject NextLevelPanel;
-
-
-   
-
+    [SerializeField] private GameObject LevelsPanel;
+    public bool isRestartLevel;
+    [HideInInspector] public UnityEvent<bool> EndGameEvent = new UnityEvent<bool>();
     private void Awake()
     {
-        if(instance==null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -25,29 +28,47 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Invoke("PanelControl", 0.1f);
+        PanelControl();
     }
 
     private void PanelControl()
     {
         if (isGameStart)
         {
+           
             GameStartPanel.SetActive(false);
-        }
+            LevelsPanel.SetActive(true);
+            
+        
 
+        }
         if (isGameOver)
         {
-            Time.timeScale = 0;
+
             GameOverPanel.SetActive(true);
+            
 
         }
 
-        if (isNextLevel)
+       /* if (isNextLevel)
         {
-            Time.timeScale = 0;
+
             NextLevelPanel.SetActive(true);
-        }
+           
+           
+
+        }*/
+
+    }
+
+
+
+   public void EndGame(bool status)
+    {
+        EndGameEvent.Invoke(true);
+        NextLevelPanel.SetActive(true);
     }
 
 
 }
+    
