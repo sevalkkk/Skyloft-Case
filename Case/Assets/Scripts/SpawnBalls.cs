@@ -22,7 +22,7 @@ public class SpawnBalls : MonoBehaviour
         {
             instance = this;
         }
-       
+        
     }
 
     private void Start()
