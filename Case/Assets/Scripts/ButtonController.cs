@@ -1,27 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
    public void TapToRestart()
     {
-        print("tap to restart");
+        SceneManager.LoadScene("MainScene");
+      
+
     }
 
     public void RetryStage()
     {
-        print("Retry stage");
+        
     }
 
     public void SkipLevel()
-    {
-        print("Skip Level");
+    { 
+
     }
 
     public void TapToNextLevel()
     {
-        print("next level");
+       
         LevelManager.instance.LoadNextLevel();
         SpawnBalls.instance.RunSpawningOnce();
 
@@ -30,9 +33,9 @@ public class ButtonController : MonoBehaviour
     
     public void TapToStartGame()
     {
-        print("start game");
         SpawnBalls.instance.RunSpawningOnce();
         GameManager.instance.isGameStart = true;
+        print(GameManager.instance.isGameStart);
        
        
     }

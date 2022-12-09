@@ -28,7 +28,7 @@ public class BallDetector : MonoBehaviour
         {
             triggeredBallCount++;
             fillFraction = triggeredBallCount / SpawnBalls.instance.ballCount;
-            print(SpawnBalls.instance.ballCount);
+          
             fillFraction = Mathf.Min(1, fillFraction);
             PercentText.text = "%" + (fillFraction * 100).ToString("0.");
             OnPercentAge?.Invoke();
@@ -58,15 +58,16 @@ public class BallDetector : MonoBehaviour
 
     private IEnumerator WaitAndNextLevel(float waitTime)
     {
+       
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            
-            float zeroPercent = 0;
-            PercentText.text = "%" + zeroPercent;
-            
+            fillFraction = 0;
+            PercentText.text = "";
             GameManager.instance.EndGame(true);
-           
+            
+            //PercentText.text = "%" + zeroPercent;
+
 
 
         }
