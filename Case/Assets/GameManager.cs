@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     public bool isGameStart;
     public bool isNewLevel;
   
-    [SerializeField] private GameObject GameStartPanel;
-    [SerializeField] private GameObject GameOverPanel;
-    [SerializeField] private GameObject NextLevelPanel;
-    [SerializeField] private GameObject LevelsPanel;
+    [SerializeField] private  GameObject GameStartPanel;
+    [SerializeField] private  GameObject GameOverPanel;
+    [SerializeField] private  GameObject NextLevelPanel;
+    [SerializeField] private  GameObject LevelsPanel;
+   // [SerializeField] private  GameObject  WinPanel;
+
     public bool isRestartLevel;
+    public GameObject confetti;
     [HideInInspector] public UnityEvent<bool> EndGameEvent = new UnityEvent<bool>();
     private void Awake()
     {
@@ -38,9 +41,6 @@ public class GameManager : MonoBehaviour
            
             GameStartPanel.SetActive(false);
             LevelsPanel.SetActive(true);
-            
-        
-
         }
         if (isGameOver)
         {
@@ -50,22 +50,21 @@ public class GameManager : MonoBehaviour
 
         }
 
-       /* if (isNextLevel)
+        if(isNewLevel)
         {
-
-            NextLevelPanel.SetActive(true);
-           
-           
-
-        }*/
+            NextLevelPanel.SetActive(false);
+            confetti.SetActive(false);
+            isNewLevel = false;
+        }
 
     }
 
+   
 
-
-   public void EndGame(bool status)
+    public void EndGame(bool status)
     {
-        EndGameEvent.Invoke(true);
+        confetti.SetActive(true);
+        EndGameEvent.Invoke(true);        
         NextLevelPanel.SetActive(true);
     }
 

@@ -21,7 +21,7 @@ public class LevelDesigner : MonoBehaviour
 
     private void SetNewLevelAssets()
     {
-        //if(GameManager.instance.isNewLevel || GameManager.instance.isGameStart)
+       
       
             SpawnBalls.instance.coloredBallPlace.position = coloredBallTransform.position;
             SpawnBalls.instance.uncoloredBallPlace.position = uncoloredBallTransform.position;
@@ -32,5 +32,5 @@ public class LevelDesigner : MonoBehaviour
      
     }
 
-  // ADD INVOKE 
+ 
 }

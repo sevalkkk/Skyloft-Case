@@ -8,6 +8,7 @@ TagManager:
   - Metal
   - colored
   - uncolored
+  - ball
   layers:
   - Default
   - TransparentFX

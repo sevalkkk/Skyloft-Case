@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
+
 public class BallDetector : MonoBehaviour
 {
    
@@ -33,6 +34,8 @@ public class BallDetector : MonoBehaviour
             OnPercentAge?.Invoke();
             if (triggeredBallCount == SpawnBalls.instance.ballCount)
             {
+                GameManager.instance.confetti.SetActive(true);
+               
                 IEnumerator coroutine;
                 coroutine = WaitAndNextLevel(2f);
                 StartCoroutine(coroutine);
@@ -58,10 +61,17 @@ public class BallDetector : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
+            
+            float zeroPercent = 0;
+            PercentText.text = "%" + zeroPercent;
+            
             GameManager.instance.EndGame(true);
-          //  GameManager.instance.isNextLevel = true;
+           
+
+
         }
     }
 
-   
+    
+
 }

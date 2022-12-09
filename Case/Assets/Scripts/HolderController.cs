@@ -24,7 +24,7 @@ public class HolderController : MonoBehaviour
         if (ballDetector.fillFraction <=1)
         {
             
-            transform.DOMoveY(transform.position.y - 0.1f, moveDuration * ballDetector.fillFraction);
+            transform.DOMoveY(transform.position.y - 0.08f, moveDuration * ballDetector.fillFraction);
             
         }
       

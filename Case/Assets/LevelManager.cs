@@ -2,26 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] levels;
     int levelCount = 0;
     public static LevelManager instance;
-
+    private Camera cam;
+   
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
         }
+
+        cam = Camera.main;
     }
-    private void OnEnable()
+
+ 
+    public void OnEnable()
     {
         GameManager.instance.EndGameEvent.AddListener(HandleEndGameEvent);
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         GameManager.instance.EndGameEvent.RemoveListener(HandleEndGameEvent);
     }
@@ -29,16 +34,19 @@ public class LevelManager : MonoBehaviour
     private void HandleEndGameEvent(bool status)
     {
         levelCount++;
+        levels[levelCount - 1].SetActive(false);
 
     }
 
     public void LoadNextLevel()
     {
-        levels[levelCount-1].SetActive(false);
-      
+  
         if (levelCount < levels.Length)
         {
-            levels[levelCount].SetActive(true);
+            levels[levelCount].SetActive(true);          
+            GameManager.instance.isNewLevel = true;
+            cam.transform.DOMoveY(cam.transform.position.y-50, 1.5f);
+            GameManager.instance.confetti.transform.DOMoveY(GameManager.instance.confetti.transform.position.y - 50, 1.5f);
         }
     }
 

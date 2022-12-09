@@ -27,9 +27,11 @@ public class PencilRaycastController : MonoBehaviour
             if (hit.collider != null )
             {
                 float moveDuration = 2;
-                obj.transform.DOMoveX(obj.transform.position.y + 20, moveDuration);
+                obj.transform.DOMoveX(obj.transform.position.y + 30, moveDuration);
             }
         }
     }
+
+    
 
 }
