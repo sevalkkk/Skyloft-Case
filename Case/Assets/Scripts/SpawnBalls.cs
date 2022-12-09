@@ -38,7 +38,7 @@ public class SpawnBalls : MonoBehaviour
             for (int i = 0; i < coloredBallCount; i++)
             {
                 GameObject obj_color = Instantiate(BallPrefab, coloredBallPlace) as GameObject;
-                obj_color.GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
+                obj_color.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
                 obj_color.transform.position = coloredBallPlace.position;
                 obj_color.tag = "colored";
                
