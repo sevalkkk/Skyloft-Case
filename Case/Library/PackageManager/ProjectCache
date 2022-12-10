@@ -5,21 +5,231 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638059988265778160
-    m_Hash: 4179566897
+      ticks: 638062494455817715
+    m_Hash: 3913501029
   m_LockFileStatus:
     m_FilePath: C:/Users/seval/Documents/GitHub/Skyloft-Case/Case/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638059988496981524
-    m_Hash: 4197502262
+      ticks: 638062494455877564
+    m_Hash: 1546566974
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
   m_Packages:
     m_ResolvedPackages:
+    - packageId: com.unity.ads@3.7.5
+      testable: 0
+      isDirectDependency: 1
+      version: 3.7.5
+      source: 1
+      resolvedPath: C:\Users\seval\Documents\GitHub\Skyloft-Case\Case\Library\PackageCache\com.unity.ads@3.7.5
+      assetPath: Packages/com.unity.ads
+      name: com.unity.ads
+      displayName: Advertisement
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: asset
+      description: Unity Ads is a video ad network for iOS and Android that allows
+        you to quickly and effectively monetize your games.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.0.3
+        - 0.0.4
+        - 0.0.5
+        - 0.0.6
+        - 0.0.7
+        - 0.0.8
+        - 0.0.10
+        - 0.0.11
+        - 0.0.12
+        - 0.0.13
+        - 0.0.14
+        - 0.0.15
+        - 0.0.16
+        - 2.0.0
+        - 2.0.3
+        - 2.0.4
+        - 2.0.7
+        - 2.0.8
+        - 2.3.1
+        - 2.3.2
+        - 3.0.1
+        - 3.0.2
+        - 3.0.3
+        - 3.1.1
+        - 3.2.0
+        - 3.3.0
+        - 3.3.1
+        - 3.4.0
+        - 3.4.1
+        - 3.4.2
+        - 3.4.4
+        - 3.4.5
+        - 3.4.7
+        - 3.4.9
+        - 3.5.0
+        - 3.5.2
+        - 3.6.1
+        - 3.7.0
+        - 3.7.1
+        - 3.7.3
+        - 3.7.5
+        - 4.0.0
+        - 4.0.1
+        - 4.1.0
+        - 4.2.1
+        - 4.3.0
+        - 4.4.1
+        compatible:
+        - 0.0.3
+        - 0.0.4
+        - 0.0.5
+        - 0.0.6
+        - 0.0.7
+        - 0.0.8
+        - 0.0.10
+        - 0.0.11
+        - 0.0.12
+        - 0.0.13
+        - 0.0.14
+        - 0.0.15
+        - 0.0.16
+        - 2.0.0
+        - 2.0.3
+        - 2.0.4
+        - 2.0.7
+        - 2.0.8
+        - 2.3.1
+        - 2.3.2
+        - 3.0.1
+        - 3.0.2
+        - 3.0.3
+        - 3.1.1
+        - 3.2.0
+        - 3.3.0
+        - 3.3.1
+        - 3.4.0
+        - 3.4.1
+        - 3.4.2
+        - 3.4.4
+        - 3.4.5
+        - 3.4.7
+        - 3.4.9
+        - 3.5.0
+        - 3.5.2
+        - 3.6.1
+        - 3.7.0
+        - 3.7.1
+        - 3.7.3
+        - 3.7.5
+        - 4.0.0
+        - 4.0.1
+        - 4.1.0
+        - 4.2.1
+        - 4.3.0
+        - 4.4.1
+        verified: 3.7.5
+      dependencies:
+      - name: com.unity.ugui
+        version: 1.0.0
+      resolvedDependencies:
+      - name: com.unity.ugui
+        version: 1.0.0
+      - name: com.unity.modules.ui
+        version: 1.0.0
+      - name: com.unity.modules.imgui
+        version: 1.0.0
+      keywords:
+      - ads
+      - unity
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 0
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637635162230000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/com.unity.ads.git
+        revision: 0e92fa56fc4e4cd1fa305e76a911acdae6386b96
+        path: 
+    - packageId: com.unity.ads.ios-support@1.2.0
+      testable: 0
+      isDirectDependency: 1
+      version: 1.2.0
+      source: 1
+      resolvedPath: C:\Users\seval\Documents\GitHub\Skyloft-Case\Case\Library\PackageCache\com.unity.ads.ios-support@1.2.0
+      assetPath: Packages/com.unity.ads.ios-support
+      name: com.unity.ads.ios-support
+      displayName: iOS 14 Advertising Support
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: asset
+      description: 'Provides support for App Tracking Transparency and SkAdNetwork
+        API newly introduced in Apple iOS 14.
+
+
+        Includes a sample implementation
+        of a customizable context screen to show before requesting tracking permission.'
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.0-preview.1
+        - 0.1.0-preview.2
+        - 0.2.0-preview.3
+        - 1.0.0
+        - 1.2.0
+        compatible:
+        - 0.1.0-preview.1
+        - 0.1.0-preview.2
+        - 0.2.0-preview.3
+        - 1.0.0
+        - 1.2.0
+        verified: 
+      dependencies: []
+      resolvedDependencies: []
+      keywords: []
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 0
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637716389320000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.com/Unity-Technologies/com.unity.ads.ios-support-private.git
+        revision: 2722a36909277e976667a939170f083ebd3a6a7f
+        path: 
     - packageId: com.unity.collab-proxy@1.15.7
       testable: 0
       isDirectDependency: 1
@@ -230,6 +440,7 @@ m_PackageAssets:
         - 3.0.14
         - 3.0.15
         - 3.0.16
+        - 3.0.17
         compatible:
         - 1.0.2
         - 1.0.6
@@ -263,6 +474,7 @@ m_PackageAssets:
         - 3.0.14
         - 3.0.15
         - 3.0.16
+        - 3.0.17
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -338,6 +550,7 @@ m_PackageAssets:
         - 2.0.14
         - 2.0.15
         - 2.0.16
+        - 2.0.17
         compatible:
         - 1.0.2
         - 1.0.3
@@ -358,7 +571,8 @@ m_PackageAssets:
         - 2.0.14
         - 2.0.15
         - 2.0.16
-        verified: 2.0.16
+        - 2.0.17
+        verified: 2.0.17
       dependencies:
       - name: com.unity.test-framework
         version: 1.1.9
@@ -2901,6 +3115,7 @@ m_PackageAssets:
         - 1.4.3
         - 1.5.2
         - 1.6.0
+        - 1.7.0
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -2919,6 +3134,7 @@ m_PackageAssets:
         - 1.4.3
         - 1.5.2
         - 1.6.0
+        - 1.7.0
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest

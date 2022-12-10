@@ -54,7 +54,8 @@ public class BallDetector : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-           
+            fillFraction = 0;
+            PercentText.text = "";
             GameManager.instance.isGameOver = true;
             
 

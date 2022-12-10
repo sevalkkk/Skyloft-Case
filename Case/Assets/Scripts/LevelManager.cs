@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] levels;
-    int levelCount; 
+    public int levelCount; 
     public static LevelManager instance;
     private Camera cam;
     

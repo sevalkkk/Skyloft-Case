@@ -20,7 +20,9 @@ public class ButtonController : MonoBehaviour
     }
 
     public void SkipLevel()
-    { 
+    {
+        AdsManager.instance.ShowRewardedAds();
+     
 
     }
 

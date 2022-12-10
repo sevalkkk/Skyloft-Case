@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         if(isGameOver)
         {
             GameOverPanel.SetActive(true);
-
+            isGameOver = false;
         }
     }
 
