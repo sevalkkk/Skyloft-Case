@@ -40,6 +40,8 @@ public class SpawnBalls : MonoBehaviour
                 GameObject obj_color = Instantiate(BallPrefab, coloredBallPlace) as GameObject;
                 obj_color.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
                 obj_color.transform.position = coloredBallPlace.position;
+                float random_size = Random.Range(0.5f, 0.7f);
+                obj_color.transform.localScale = new Vector3(random_size, random_size, random_size);
                 obj_color.tag = "colored";
                
 
@@ -50,6 +52,8 @@ public class SpawnBalls : MonoBehaviour
 
                 GameObject obj_uncolor = Instantiate(BallPrefab, uncoloredBallPlace) as GameObject;
                 obj_uncolor.transform.position = uncoloredBallPlace.position;
+                float random_size = Random.Range(0.5f, 0.7f);
+                obj_uncolor.transform.localScale = new Vector3(random_size, random_size, random_size);
                 obj_uncolor.tag = "uncolored";
             }
 

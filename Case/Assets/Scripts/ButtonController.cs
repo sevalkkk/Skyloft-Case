@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
-   public void TapToRestart()
+
+    
+    public void TapToRestart()
     {
         SceneManager.LoadScene("MainScene");
       
@@ -27,7 +29,7 @@ public class ButtonController : MonoBehaviour
        
         LevelManager.instance.LoadNextLevel();
         SpawnBalls.instance.RunSpawningOnce();
-
+      
 
     }
     
@@ -39,4 +41,33 @@ public class ButtonController : MonoBehaviour
        
        
     }
+
+    public void SoundEffects()
+    {
+        if(!SoundEfectManager.instance.isSoundOff)
+        {
+            SoundEfectManager.instance.audioSource.Pause();
+            SoundEfectManager.instance.isSoundOff = true;
+        }
+        else
+        {
+            SoundEfectManager.instance.audioSource.UnPause(); 
+            SoundEfectManager.instance.isSoundOff = false;
+        }
+
+    }
+
+  /*  public void GameMusic()
+    {
+        if (!SoundEfectManager.instance.isMusicOff)
+        {
+            SoundEfectManager.instance.sources[1].Pause();
+            SoundEfectManager.instance.isSoundOff = true;
+        }
+        else
+        {
+            SoundEfectManager.instance.sources[1].UnPause();
+            SoundEfectManager.instance.isMusicOff = false;
+        }
+    }*/
 }

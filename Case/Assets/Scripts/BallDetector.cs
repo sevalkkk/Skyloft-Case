@@ -16,7 +16,8 @@ public class BallDetector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "uncolored")
-    {
+        {
+            SoundEfectManager.instance.PlayAudioClip(SoundEfectManager.instance.clips[2]);
             OnPercentAge?.Invoke();
             IEnumerator coroutine;
             coroutine = WaitAndGameOver(2f);
@@ -34,6 +35,7 @@ public class BallDetector : MonoBehaviour
             OnPercentAge?.Invoke();
             if (triggeredBallCount == SpawnBalls.instance.ballCount)
             {
+                SoundEfectManager.instance.PlayAudioClip(SoundEfectManager.instance.clips[1]);
                 GameManager.instance.confetti.SetActive(true);
                
                 IEnumerator coroutine;
@@ -52,7 +54,10 @@ public class BallDetector : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
+           
             GameManager.instance.isGameOver = true;
+            
+
         }
     }
 
@@ -62,11 +67,12 @@ public class BallDetector : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
+            
             fillFraction = 0;
             PercentText.text = "";
             GameManager.instance.EndGame(true);
             
-            //PercentText.text = "%" + zeroPercent;
+         
 
 
 

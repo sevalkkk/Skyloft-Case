@@ -14,7 +14,7 @@ public class BallController : MonoBehaviour
             instance = this;
         }
         rb = GetComponent<Rigidbody>();
-
+       
 
     }
 
@@ -24,6 +24,7 @@ public class BallController : MonoBehaviour
     {
         if (gameObject.tag == "uncolored" && collision.gameObject.tag == "colored")
         {
+            SoundEfectManager.instance.PlayAudioClip(SoundEfectManager.instance.clips[0]);
             gameObject.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
             gameObject.tag = "colored";
         }
