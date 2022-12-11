@@ -10,6 +10,7 @@ TagManager:
   - uncolored
   - ball
   - bomb
+  - ballDetector
   layers:
   - Default
   - TransparentFX
