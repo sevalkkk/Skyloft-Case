@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool status)
     {
 
-        confetti.SetActive(true);        
+        //confetti.SetActive(true);        
         EndGameEvent.Invoke(true);        
         NextLevelPanel.SetActive(true);
     }

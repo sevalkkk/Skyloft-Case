@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
         float camPosY = cam.transform.position.y;
         camPosY = cam.transform.position.y + levels[levelCount].transform.position.y;
         cam.transform.position = new Vector3(cam.transform.position.x, camPosY, cam.transform.position.z);
+        GameManager.instance.confetti.transform.position = new Vector3(0, camPosY, 0);
         // LoadLevelCount();
     }
 
@@ -58,7 +59,9 @@ public class LevelManager : MonoBehaviour
 
     private void HandleEndGameEvent(bool status)
     {
+        
         levelCount++;
+        
         levels[levelCount - 1].SetActive(false);
         
 
@@ -73,15 +76,29 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("level_count", levelCount);
             print("arttýrdýktan sonra" + PlayerPrefs.GetInt("level_count"));
             levels[levelCount].SetActive(true);
-            
-            GameManager.instance.isNewLevel = true;
+            print("aaaaaaaaaaaaaaaaa");
+
             cam.transform.DOMoveY(levels[levelCount].transform.position.y, 1.5f);
-            GameManager.instance.confetti.transform.DOMoveY(GameManager.instance.confetti.transform.position.y - 50, 1.5f);
+
+
             
+            
+            Debug.Log(GameManager.instance.confetti.transform.position);
+          
+            StartCoroutine(asy());
+            
+            
+
 
 
         }
 
+    }
+
+    IEnumerator asy()
+    {
+        yield return new WaitForSeconds(1f); 
+        GameManager.instance.isNewLevel = true;
     }
 
   

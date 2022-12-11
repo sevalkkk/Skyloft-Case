@@ -27,6 +27,7 @@ public class HolderController : MonoBehaviour
             transform.DOMoveY(transform.position.y - 0.08f, moveDuration * ballDetector.fillFraction);
             
         }
+        
       
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
-
+using DG.Tweening;
 
 public class BallDetector : MonoBehaviour
 {
@@ -36,7 +36,8 @@ public class BallDetector : MonoBehaviour
             if (triggeredBallCount == SpawnBalls.instance.ballCount)
             {
                 SoundEfectManager.instance.PlayAudioClip(SoundEfectManager.instance.clips[1]);
-                GameManager.instance.confetti.SetActive(true);
+              
+             //   GameManager.instance.confetti.SetActive(true);
                
                 IEnumerator coroutine;
                 coroutine = WaitAndNextLevel(2f);
@@ -64,13 +65,15 @@ public class BallDetector : MonoBehaviour
 
     private IEnumerator WaitAndNextLevel(float waitTime)
     {
-       
+        GameManager.instance.confetti.SetActive(true);
+
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
             
             fillFraction = 0;
             PercentText.text = "";
+            
             GameManager.instance.EndGame(true);
             
          
