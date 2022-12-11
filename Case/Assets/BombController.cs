@@ -14,6 +14,8 @@ public class BombController : MonoBehaviour
  
     private void OnCollisionEnter(Collision collision)
     {
+
+        //if bomb touchs balls , game over.
         if(collision.gameObject.tag =="colored" || collision.gameObject.tag=="uncolored")
         {
           
@@ -21,7 +23,7 @@ public class BombController : MonoBehaviour
             ExplosionMethod();
 
         }
-
+        //if bomb touches another bomb , nothing happens.
         if (collision.gameObject.tag == "bomb")
         {
             
@@ -32,6 +34,7 @@ public class BombController : MonoBehaviour
 
    private void OnTriggerExit(Collider other)
     {
+        //if ball touches ball detector, game over.
         if(other.gameObject.tag=="ballDetector")
         {
             gameEnd = true;
@@ -41,16 +44,23 @@ public class BombController : MonoBehaviour
 
     void ExplosionMethod()
     {
+       
         bombPosition = transform.position;
+        //set bombs childs count to childCount variable.
         int childCount = gameObject.transform.childCount;
+        //deactivate bomb collider. 
         gameObject.GetComponent<SphereCollider>().enabled = false;
+        //deactivate all bomb childs mesh.(so it can be visible)
         for (int i = 0; i < childCount; i++)
         {
             gameObject.transform.GetChild(i).GetComponent<MeshFilter>().mesh = null;
         }
+        //set explosion active.
         Explosion.SetActive(true);
 
+        //set explosion position to bomb position.(so it can look like real.)
         Explosion.transform.position = bombPosition + new Vector3(1.9f, 0, 0);
+        
         StartCoroutine(WaitAndDeactivateBomb(1.7f));
 
     }
@@ -59,9 +69,10 @@ public class BombController : MonoBehaviour
     private IEnumerator WaitAndDeactivateBomb(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        
+        //deactivate explosion because it finished.
         Explosion.SetActive(false);
         gameObject.SetActive(false);
+        //if there is a explosion and game is over.
         if(gameEnd)
         {
 
