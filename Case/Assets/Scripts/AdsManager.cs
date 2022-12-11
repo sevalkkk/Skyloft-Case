@@ -7,12 +7,15 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 {
     public static AdsManager instance;
     string GameID = "5068309";
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+
+
     }
     private void Start()
     {
@@ -67,7 +70,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             //user watched ad.
             //earned coins.
             Debug.Log("player watched whole ad video.");
-          
+
             
             GameManager.instance.EndGame(true);
 

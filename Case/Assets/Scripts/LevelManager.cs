@@ -62,9 +62,10 @@ public class LevelManager : MonoBehaviour
     {
         
         levelCount++;
-        
         levels[levelCount - 1].SetActive(false);
-        
+        DeactivateAllBalls();
+
+
 
     }
 
@@ -75,34 +76,45 @@ public class LevelManager : MonoBehaviour
         if (levelCount < levels.Length)
         {
             PlayerPrefs.SetInt("level_count", levelCount);
-            print("arttýrdýktan sonra" + PlayerPrefs.GetInt("level_count"));
+            
             levels[levelCount].SetActive(true);
-            print("aaaaaaaaaaaaaaaaa");
-
             cam.transform.DOMoveY(levels[levelCount].transform.position.y, 1.5f);
-
-
-            
-            
-            Debug.Log(GameManager.instance.confetti.transform.position);
-          
-            StartCoroutine(asy());
-            
-            
-
-
-
+            StartCoroutine(WaitAndLoadNewLevel());
         }
 
     }
 
-    IEnumerator asy()
+    IEnumerator WaitAndLoadNewLevel()
     {
         yield return new WaitForSeconds(1f); 
         GameManager.instance.isNewLevel = true;
     }
 
-  
 
-   
+    public void DeactivateAllBalls()
+    {
+         GameObject[] _coloredballs = GameObject.FindGameObjectsWithTag("colored");
+        
+         foreach (GameObject ball in _coloredballs) {
+            ball.SetActive(false);
+             
+         }
+
+
+
+        GameObject[] _uncoloredballs = GameObject.FindGameObjectsWithTag("uncolored");
+
+        foreach (GameObject ball in _uncoloredballs)
+        {
+            ball.SetActive(false);
+
+        }
+
+
+
+
+    }
+
+
+
 }

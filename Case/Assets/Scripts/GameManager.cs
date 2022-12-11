@@ -30,13 +30,13 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+
+       
+        Application.targetFrameRate = 60;
     }
 
-    private void Start()
-    {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = -1;
-    }
+   
 
     private void Update()
     {
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
            
             GameStartPanel.SetActive(false);
             LevelsPanel.SetActive(true);
-            //isGameStart = false;
+           
         }
     
 
@@ -63,7 +63,9 @@ public class GameManager : MonoBehaviour
 
         if(isGameOver)
         {
+            
             GameOverPanel.SetActive(true);
+           
             isGameOver = false;
         }
     }
@@ -73,7 +75,7 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool status)
     {
 
-        //confetti.SetActive(true);        
+       
         EndGameEvent.Invoke(true);        
         NextLevelPanel.SetActive(true);
     }

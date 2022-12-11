@@ -28,9 +28,10 @@ public class ButtonController : MonoBehaviour
 
     public void TapToNextLevel()
     {
-       
-        LevelManager.instance.LoadNextLevel();
+
         SpawnBalls.instance.RunSpawningOnce();
+        LevelManager.instance.LoadNextLevel();
+       
       
 
     }

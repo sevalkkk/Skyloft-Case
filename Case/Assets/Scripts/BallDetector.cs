@@ -9,7 +9,7 @@ public class BallDetector : MonoBehaviour
 {
    
     float triggeredBallCount;
-    [SerializeField] private TMP_Text PercentText;
+    public TMP_Text PercentText;
     public float fillFraction;
     public static event Action OnPercentAge;
 
@@ -17,8 +17,11 @@ public class BallDetector : MonoBehaviour
     {
         if (other.gameObject.tag == "uncolored")
         {
+            
+            SetConfettiPosition();
+           
             SoundEfectManager.instance.PlayAudioClip(SoundEfectManager.instance.clips[2]);
-            GameManager.instance.confetti.transform.position = new Vector3(0, (LevelManager.instance.levelCount*-50), 0);
+           // LevelManager.instance.DeactivateAllBalls();
             OnPercentAge?.Invoke();
             IEnumerator coroutine;
             coroutine = WaitAndGameOver(2f);
@@ -29,17 +32,18 @@ public class BallDetector : MonoBehaviour
         if(other.gameObject.tag=="colored")
         {
             triggeredBallCount++;
-            fillFraction = triggeredBallCount / SpawnBalls.instance.ballCount;
-           
+            fillFraction = triggeredBallCount / SpawnBalls.instance.ballCount;          
             fillFraction = Mathf.Min(1, fillFraction);
             PercentText.text = "%" + (fillFraction * 100).ToString("0.");
             OnPercentAge?.Invoke();
             if (triggeredBallCount == SpawnBalls.instance.ballCount)
             {
+                
                 SoundEfectManager.instance.PlayAudioClip(SoundEfectManager.instance.clips[1]);
-                GameManager.instance.confetti.transform.position = new Vector3(0, (LevelManager.instance.levelCount * -50), 0);
-               // GameManager.instance.confetti.SetActive(true);
                
+                GameManager.instance.confetti.SetActive(true);
+                SetConfettiPosition();
+
                 IEnumerator coroutine;
                 coroutine = WaitAndNextLevel(2f);
                 StartCoroutine(coroutine);
@@ -55,7 +59,9 @@ public class BallDetector : MonoBehaviour
     {
         while (true)
         {
+
             yield return new WaitForSeconds(waitTime);
+           
             fillFraction = 0;
             PercentText.text = "";
             GameManager.instance.isGameOver = true;
@@ -66,7 +72,7 @@ public class BallDetector : MonoBehaviour
 
     private IEnumerator WaitAndNextLevel(float waitTime)
     {
-        GameManager.instance.confetti.SetActive(true);
+       // 
 
         while (true)
         {
@@ -84,6 +90,10 @@ public class BallDetector : MonoBehaviour
         }
     }
 
+    void SetConfettiPosition()
+    {
+        GameManager.instance.confetti.transform.position = new Vector3(0, (LevelManager.instance.levelCount * -50), 0);
+    }
     
 
 }

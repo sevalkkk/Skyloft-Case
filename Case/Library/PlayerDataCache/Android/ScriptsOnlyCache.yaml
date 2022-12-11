@@ -1,14 +1,17 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AdsManager
     - BallController
     - BallDetector
+    - BombController
     - ButtonController
     - GameManager
     - HolderController
     - LevelDesigner
     - LevelManager
     - PencilRaycastController
+    - SoundEfectManager
     - SpawnBalls
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
@@ -70,6 +73,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -81,49 +88,55 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1472}
+      Script: {instanceID: 1640}
     - Class: 114
-      Script: {instanceID: 1752}
+      Script: {instanceID: 1958}
     - Class: 114
-      Script: {instanceID: 2032}
+      Script: {instanceID: 2290}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2628}
     - Class: 114
-      Script: {instanceID: 2342}
+      Script: {instanceID: 2650}
     - Class: 114
-      Script: {instanceID: 2458}
+      Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 2500}
+      Script: {instanceID: 2842}
     - Class: 114
-      Script: {instanceID: 2532}
+      Script: {instanceID: 2880}
     - Class: 114
-      Script: {instanceID: 2582}
+      Script: {instanceID: 2918}
     - Class: 114
-      Script: {instanceID: 2630}
+      Script: {instanceID: 2932}
     - Class: 114
-      Script: {instanceID: 2706}
+      Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 2816}
+      Script: {instanceID: 3026}
     - Class: 114
-      Script: {instanceID: 2904}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 3068}
+      Script: {instanceID: 3194}
     - Class: 114
-      Script: {instanceID: 3214}
+      Script: {instanceID: 3254}
     - Class: 114
-      Script: {instanceID: 3466}
+      Script: {instanceID: 3302}
     - Class: 114
-      Script: {instanceID: 3520}
+      Script: {instanceID: 3492}
     - Class: 114
-      Script: {instanceID: 3640}
+      Script: {instanceID: 3662}
     - Class: 114
-      Script: {instanceID: 3780}
+      Script: {instanceID: 3992}
     - Class: 114
-      Script: {instanceID: 3894}
+      Script: {instanceID: 4054}
     - Class: 114
-      Script: {instanceID: 3896}
+      Script: {instanceID: 4188}
     - Class: 114
-      Script: {instanceID: 4166}
+      Script: {instanceID: 4358}
+    - Class: 114
+      Script: {instanceID: 4476}
+    - Class: 114
+      Script: {instanceID: 4478}
+    - Class: 114
+      Script: {instanceID: 4790}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -285,6 +298,12 @@ ScriptsOnlyBuild:
     className: Benchmark02
   - hash:
       serializedVersion: 2
+      Hash: a325152ad9563ed900af221c132fea36
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements.Utilities
+    className: CoroutineExecutor
+  - hash:
+      serializedVersion: 2
       Hash: 9c31ea2e8bf7a7ef50a3c591ca157913
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -319,6 +338,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: EventSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.Monetization.dll
+    namespaceName: UnityEngine.Monetization
+    className: Placeholder
   - hash:
       serializedVersion: 2
       Hash: fe64a45214940b510a0ec79c96d43498
@@ -357,10 +382,22 @@ ScriptsOnlyBuild:
     className: SpawnBalls
   - hash:
       serializedVersion: 2
+      Hash: 9a1f26db846332e0011af9486d705590
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BombController
+  - hash:
+      serializedVersion: 2
       Hash: e04650625a5963941738659b194d0987
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements
+    className: Placeholder
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -373,6 +410,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 0fce61e4ec3fb036b0320ed30efc5f56
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundEfectManager
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -393,7 +436,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 970227a4459058bdc2cd00e602f1a7af
+      Hash: 7405e4dd9ee0b3231cb2f9cbc8b6adfa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelManager
@@ -439,6 +482,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AdsManager
   - hash:
       serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
@@ -508,6 +557,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements.Utilities
+    className: ApplicationQuit
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
@@ -535,6 +590,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 88e2c6f501bf5dead831a3e44c30de40
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements.Platform.Editor
+    className: BannerPlaceholder
   - hash:
       serializedVersion: 2
       Hash: e63944317d2f5958e31963668bb29158
@@ -844,4 +905,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  playerPath: C:/Users/seval/AppData/Roaming/Microsoft/Windows/Network Shortcuts/apkkkk.apk
+  playerPath: C:/Users/seval/AppData/Roaming/Microsoft/Windows/Network Shortcuts/aph.apk

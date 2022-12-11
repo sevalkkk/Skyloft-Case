@@ -9,12 +9,14 @@ public class BombController : MonoBehaviour
     Vector3 bombPosition;
     Mesh[] meshes;
     bool gameEnd;
+   
 
-
+ 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag =="colored" || collision.gameObject.tag=="uncolored")
         {
+          
             gameEnd = true;
             ExplosionMethod();
 
@@ -62,6 +64,8 @@ public class BombController : MonoBehaviour
         gameObject.SetActive(false);
         if(gameEnd)
         {
+
+            SoundEfectManager.instance.PlayAudioClip(SoundEfectManager.instance.clips[2]);
             GameManager.instance.isGameOver = true;
             gameEnd = false;
         }
