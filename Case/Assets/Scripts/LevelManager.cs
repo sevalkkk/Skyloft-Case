@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public int levelCount; 
     public static LevelManager instance;
     private Camera cam;
+
     
 
     private void Awake()
@@ -25,7 +26,7 @@ public class LevelManager : MonoBehaviour
 
 
     }
-
+    
 
     private void Start()
     {
@@ -38,12 +39,12 @@ public class LevelManager : MonoBehaviour
         levels[levelCount].SetActive(true);
         print("baslangicta" + PlayerPrefs.GetInt("level_count"));
         float camPosY = cam.transform.position.y;
-        camPosY = cam.transform.position.y + levels[levelCount].transform.position.y;
+        camPosY =  levels[levelCount].transform.position.y;
         cam.transform.position = new Vector3(cam.transform.position.x, camPosY, cam.transform.position.z);
-        GameManager.instance.confetti.transform.position = new Vector3(0, camPosY, 0);
-        // LoadLevelCount();
+       
+       
     }
-
+    
     public void OnEnable()
     {
         GameManager.instance.EndGameEvent.AddListener(HandleEndGameEvent);

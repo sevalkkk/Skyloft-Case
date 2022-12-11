@@ -10,9 +10,7 @@ public class BombController : MonoBehaviour
     Mesh[] meshes;
     bool gameEnd;
 
-    private void Awake()
-    {
-    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag =="colored" || collision.gameObject.tag=="uncolored")
@@ -28,6 +26,15 @@ public class BombController : MonoBehaviour
             ExplosionMethod();
         } 
 
+    }
+
+   private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag=="ballDetector")
+        {
+            gameEnd = true;
+            ExplosionMethod();
+        }
     }
 
     void ExplosionMethod()

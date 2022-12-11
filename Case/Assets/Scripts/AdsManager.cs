@@ -67,7 +67,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             //user watched ad.
             //earned coins.
             Debug.Log("player watched whole ad video.");
-            //LevelManager.instance.levelCount++;
+          
             
             GameManager.instance.EndGame(true);
 
